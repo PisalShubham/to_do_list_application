@@ -1,6 +1,7 @@
 import 'package:flutter/Material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'to_do_app.dart';
+import 'create_account_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -65,7 +66,7 @@ class LoginState extends State {
           color: Colors.white,
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 30),
               SizedBox(
                 //height: 300,
                 width: 300,
@@ -98,7 +99,7 @@ class LoginState extends State {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Username",
+                        "Mobile Number",
                         style: GoogleFonts.quicksand(
                           fontSize: 15,
                           fontWeight: FontWeight.w800,
@@ -242,7 +243,41 @@ class LoginState extends State {
                   ),
                 ),
               ),
-              const SizedBox(height: 160),
+              const SizedBox(height: 25),
+              Container(
+                padding: const EdgeInsets.only(left: 22),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 38),
+                    Text(
+                      "Don't have an account? ",
+                      style: GoogleFonts.inter(
+                          fontSize: 19,
+                          fontWeight: FontWeight.w500,
+                          color: const Color.fromRGBO(116, 114, 100, 1)),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CreateAccount(),
+                            ),
+                          );
+                        });
+                      },
+                      child: Text(
+                        "Sign Up",
+                        style: GoogleFonts.inter(
+                            fontSize: 19,
+                            fontWeight: FontWeight.w600,
+                            color: const Color.fromRGBO(25, 154, 142, 1)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
